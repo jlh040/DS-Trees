@@ -2,7 +2,7 @@
   "name": "dsa-trees",
   "version": "1.0.0",
   "description": "",
-  "main": "areCousins.js",
+  "main": "tree.js",
   "scripts": {
     "test": "jest"
   },
