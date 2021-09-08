@@ -60,7 +60,26 @@ class Tree {
   /** numGreater(lowerBound): return a count of the number of nodes
    * whose value is greater than lowerBound. */
 
-  numGreater(lowerBound) {}
+  numGreater(lowerBound) {
+    const toVisitStack = [this.root];
+    let numGreater = 0;
+
+    while (toVisitStack.length) {
+      let current = toVisitStack.pop();
+
+      if (current === null) {
+        break;
+      } else if (current.val > lowerBound) {
+        numGreater++;
+      }
+
+      for (let node of current.children) {
+        toVisitStack.push(node);
+      }
+    }
+
+    return numGreater;
+  }
 }
 
 module.exports = { Tree, TreeNode };
