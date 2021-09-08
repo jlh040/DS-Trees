@@ -15,21 +15,33 @@ class Tree {
   /** sumValues(): add up all of the values in the tree. */
 
   sumValues() {
-    
+    const toVisitStack = [this.root];
+    let total = 0;
+
+    while (toVisitStack.length) {
+      let current = toVisitStack.pop();
+
+      if (current === null) {
+        break;
+      } else {
+        total += current.val;
+      }
+
+      for (let node of current.children) {
+        toVisitStack.push(node);
+      }
+    }
+    return total;
   }
 
   /** countEvens(): count all of the nodes in the tree with even values. */
 
-  countEvens() {
-
-  }
+  countEvens() {}
 
   /** numGreater(lowerBound): return a count of the number of nodes
    * whose value is greater than lowerBound. */
 
-  numGreater(lowerBound) {
-
-  }
+  numGreater(lowerBound) {}
 }
 
 module.exports = { Tree, TreeNode };
